@@ -1,13 +1,15 @@
-<form>
-	<div class="form-group">
-		<label>
-			Which car are you interested in?
-		</label>
-		<select ng-model="selectedItem" ng-options="car.model for car in carList">
-		</select>
-	</div>
-	<div class="form-group">
-		<label for=""></label>
-		<button class="btn btn-primary" ng-click="calculate()">Submit</button>
-	</div>
-</form>
+<div class="container" id="select-car">
+	<form>
+		<div class="form-group">
+			<label>
+				Which car are you interested in?
+			</label>
+			<select ng-model="selectedItem" ng-options="car.model for car in carList">
+			</select>
+		</div>
+		<div class="form-group">
+			<label for=""></label>
+			<button class="btn btn-primary" ng-click="calculate()">Submit</button>
+		</div>
+	</form>
+</div>

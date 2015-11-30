@@ -1,0 +1,23 @@
+<div class="container" id="enterdata">
+	<img ng-src={{imagePath}}>
+	<form>
+		<label>MSRP: {{msrp}}</label>
+		<div class="form-group">
+			<label for="price">Purchase Price: </label>
+			<input type="text" id="price" class="form-control" ng-model="price">
+		</div>
+		<div class="form-group">
+			<label for="downpayment">Down Payment: </label>
+			<input type="text" id="downpayment" class="form-control" ng-model="downpmt">
+		</div>
+		<div class="form-group">
+			<label for="payments"># Payments: </label>
+			<input type="text" id="payments" class="form-control" ng-model="numpayments">
+		</div>
+		<div class="form-group">
+			<label for="rate">Interest Rate: </label>
+			<input type="text" id="rate" class="form-control" ng-model="rate">
+		</div>
+
+	</form>
+</div>

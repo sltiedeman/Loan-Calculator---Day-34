@@ -1,27 +1,16 @@
-@import 'compass/css3';
-
-.main {
-	background: blue;
+#total-wrapper{
+	width: 60%;
+	margin: auto;
+	text-align: center;
 }
 
-.container {
-	font-size: 14px;
-	a{ 
-		text-decoration: none;
+
+#enterdata{
+	img{
+		max-width: 400px;
 	}
 }
 
-.container{
-	font-size: 14px;
-	li{
-		list-style:none;
-		font-size: 15px;
-		a{	
-			text-decoration: none;
-		}
-	}
-}
-
-.container{
-	background-color: green;
+#select-car{
+	text-align: center;
 }
