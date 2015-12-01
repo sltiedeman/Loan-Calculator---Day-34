@@ -7,6 +7,7 @@ var model = "";
 var imagePath = "";
 var counter = 0;
 var selectedCars = [];
+var globalIndex;
 
 carApp.config(function($routeProvider, $locationProvider){
 	$routeProvider.when('/', {
@@ -19,6 +20,10 @@ carApp.config(function($routeProvider, $locationProvider){
 	}).
 	when('/compare',{
 		templateUrl: 'compare.html',
+		controller: 'carLoanController'
+	}).
+	when('/edit',{
+		templateUrl: 'edit.html',
 		controller: 'carLoanController'
 	}).
 	otherwise({
@@ -39,10 +44,15 @@ carApp.controller('carLoanController', function ($scope, $location){
 
 	$scope.chooseCar = function(){
 		//problem starts here!!!!!!!!!!!!!!!!!!!!!!
-		console.log($scope.selectedItem);
-		console.log(carList);
+		// carList.splice(selectedCars[counter].id, 1);
 		selectedCars.push($scope.selectedItem);
-		console.log(selectedCars);
+		var carId = selectedCars[counter].id;
+		for(i=0; i<carList.length; i++){
+			if(carList[i].id == carId){
+				carId = i;
+			}
+		}
+		carList.splice(carId, 1);
 		msrp = selectedCars[counter].msrp;
 		make = selectedCars[counter].make;
 		model = selectedCars[counter].model;
@@ -70,6 +80,31 @@ carApp.controller('carLoanController', function ($scope, $location){
 
 	$scope.changePath = function(){
 		$location.path("/");
+	}
+
+	$scope.delete = function(index){
+		selectedCars.splice(index,1);
+		counter--;
+	}
+
+	$scope.edit = function($index){
+		$location.path("/edit");
+		globalIndex = $index;
+		console.log(globalIndex);
+	}
+
+	$scope.editData = function(){
+		console.log(globalIndex);
+		selectedCars[globalIndex].rate = $scope.rate;
+		selectedCars[globalIndex].numPayments = $scope.numPayments;
+		selectedCars[globalIndex].downpmt = $scope.downpmt;
+		selectedCars[globalIndex].amountFinanced = $scope.price - $scope.downpmt;
+		var loanAmt = selectedCars[globalIndex].amountFinanced;
+		var rate = $scope.rate;
+		var months = $scope.numPayments;
+		selectedCars[globalIndex].payment = parseInt((loanAmt*(rate / 12))/(1-Math.pow((1+rate/12),-months)));
+		console.log(selectedCars[globalIndex]);
+		$location.path("/compare");
 	}
 
 });
