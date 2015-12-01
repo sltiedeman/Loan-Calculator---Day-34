@@ -1,16 +1,54 @@
 /* line 1, ../compass/sass/style.scss */
 #total-wrapper {
-  width: 60%;
-  margin: auto;
   text-align: center;
+  margin-bottom: 40px;
 }
 
-/* line 9, ../compass/sass/style.scss */
+/* line 8, ../compass/sass/style.scss */
 #enterdata img {
   max-width: 400px;
 }
+/* line 12, ../compass/sass/style.scss */
+#enterdata form input {
+  text-align: center;
+  font-size: 20px;
+}
 
-/* line 14, ../compass/sass/style.scss */
+/* line 19, ../compass/sass/style.scss */
 #select-car {
   text-align: center;
+}
+/* line 21, ../compass/sass/style.scss */
+#select-car img {
+  max-width: 400px;
+}
+
+/* line 28, ../compass/sass/style.scss */
+#compare-cars-wrapper #compare-cars img {
+  height: 200px;
+  max-width: 300px;
+}
+/* line 32, ../compass/sass/style.scss */
+#compare-cars-wrapper #compare-cars #vehicle {
+  text-align: center;
+}
+/* line 35, ../compass/sass/style.scss */
+#compare-cars-wrapper #compare-cars .text {
+  width: 48%;
+  margin-right: 2%;
+  float: left;
+  text-align: right;
+  font-size: 20px;
+}
+/* line 42, ../compass/sass/style.scss */
+#compare-cars-wrapper #compare-cars .data {
+  width: 50%;
+  float: left;
+  text-align: left;
+  font-size: 20px;
+}
+/* line 49, ../compass/sass/style.scss */
+#compare-cars-wrapper button {
+  margin: auto;
+  margin-top: 50px;
 }

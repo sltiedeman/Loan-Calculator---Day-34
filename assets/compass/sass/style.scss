@@ -1,7 +1,6 @@
 #total-wrapper{
-	width: 60%;
-	margin: auto;
 	text-align: center;
+	margin-bottom: 40px;
 }
 
 
@@ -9,8 +8,48 @@
 	img{
 		max-width: 400px;
 	}
+	form{
+		input{
+			text-align: center;
+			font-size: 20px;
+		}
+	}
 }
 
 #select-car{
 	text-align: center;
+	img{
+		max-width: 400px;
+	}
 }
+
+#compare-cars-wrapper{
+	#compare-cars{
+		img{
+			height: 200px;
+			max-width: 300px;
+		}
+		#vehicle{
+			text-align: center;
+		}
+		.text{
+			width: 48%;
+			margin-right: 2%;
+			float: left;
+			text-align: right;
+			font-size: 20px;
+		}
+		.data{
+			width: 50%;
+			float: left;
+			text-align: left;
+			font-size: 20px;
+		}
+	}
+	button{
+		margin: auto;
+		margin-top: 50px;
+	}
+
+}
+

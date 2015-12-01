@@ -1,0 +1,37 @@
+
+<div id="compare-cars-wrapper">
+	<div class="row">
+		<div ng-repeat="car in selectedCars" class="col-md-4" id="compare-cars">
+			<img ng-src={{car.imageUrl}}>
+			<div id="vehicle">
+				<h3>{{car.make}} {{car.model}}</h3>
+			</div>
+
+			<div class="text">
+				MSRP: 
+			</div>
+			<div class="data">
+				${{car.msrp}}
+			</div>
+
+			<div class="text">
+				Total Financed: 
+			</div>
+			<div class="data">
+				${{car.amountFinanced}}
+			</div>
+
+			<div class="text">
+				Monthly Pmt: 
+			</div>
+			<div class="data">
+				${{car.payment}}
+			</div>
+		</div>
+	</div>
+
+	<button class="btn btn-primary" ng-click="changePath()">
+		Add Another Car</a>
+	</button>
+
+</div>
