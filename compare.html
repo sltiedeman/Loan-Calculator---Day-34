@@ -1,5 +1,10 @@
 
 <div id="compare-cars-wrapper">
+	<button class="btn btn-primary" ng-click="changePath()">
+		Add Another Car
+	</button>
+	<button class="btn btn-danger" ng-click="reset()">Reset All</button>
+
 	<div class="row">
 		<div ng-repeat="car in selectedCars" class="col-md-4" id="compare-cars">
 			<img ng-src={{car.imageUrl}}>
@@ -35,8 +40,6 @@
 
 	</div>
 
-	<button class="btn btn-primary" ng-click="changePath()">
-		Add Another Car</a>
-	</button>
+	
 
 </div>

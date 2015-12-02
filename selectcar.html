@@ -10,8 +10,15 @@
 		</div>
 		<div class="form-group">
 			<label for=""></label>
-			<button class="btn btn-primary" ng-click="chooseCar()">Submit</button>
-			
+			<div ng-show="view=='true'">
+				<button class="btn btn-primary" ng-click="chooseCar()">Submit</button>
+				<button class="btn btn-warning" ng-click="compare()">Compare</button>
+			</div>
+			<div ng-show="view=='false'">
+				<button class="btn btn-primary" ng-click="chooseCar()">Submit</button>
+			</div>
+
+
 		</div>
 	</form>
 </div>

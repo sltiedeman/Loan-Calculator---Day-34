@@ -40,11 +40,15 @@ carApp.controller('carLoanController', function ($scope, $location){
 	$scope.model = model;
 	$scope.imagePath = imagePath;
 	$scope.selectedCars = selectedCars;
-
+	$scope.view = "false";
+	//This is to determine if the compare button should be displayed
+	//on the 
+	$scope.numCarsToCompare = selectedCars.length;
+	if($scope.numCarsToCompare > 0){
+		$scope.view="true";
+	}
 
 	$scope.chooseCar = function(){
-		//problem starts here!!!!!!!!!!!!!!!!!!!!!!
-		// carList.splice(selectedCars[counter].id, 1);
 		selectedCars.push($scope.selectedItem);
 		var carId = selectedCars[counter].id;
 		for(i=0; i<carList.length; i++){
@@ -82,7 +86,15 @@ carApp.controller('carLoanController', function ($scope, $location){
 		$location.path("/");
 	}
 
+	$scope.goBack = function(){
+		var carId = selectedCars[counter].id;
+		carList.push(resetList[carId]);
+		selectedCars.pop();
+		$location.path("/");
+	}
+
 	$scope.delete = function(index){
+		// carList.push(selectedCars[index]);
 		selectedCars.splice(index,1);
 		counter--;
 	}
@@ -90,7 +102,6 @@ carApp.controller('carLoanController', function ($scope, $location){
 	$scope.edit = function($index){
 		$location.path("/edit");
 		globalIndex = $index;
-		console.log(globalIndex);
 	}
 
 	$scope.editData = function(){
@@ -105,6 +116,14 @@ carApp.controller('carLoanController', function ($scope, $location){
 		selectedCars[globalIndex].payment = parseInt((loanAmt*(rate / 12))/(1-Math.pow((1+rate/12),-months)));
 		console.log(selectedCars[globalIndex]);
 		$location.path("/compare");
+	}
+
+	$scope.reset = function(){
+		carList = resetList;
+		selectedCars = [];
+		counter = 0;
+		$location.path('/');
+		console.log(carList);
 	}
 
 });
