@@ -7,7 +7,9 @@
 
 	<div class="row">
 		<div ng-repeat="car in selectedCars" class="col-md-4" id="compare-cars">
-			<img ng-src={{car.imageUrl}}>
+			<div id="image-container">
+				<img ng-src={{car.imageUrl}}>
+			</div>
 			<div id="vehicle">
 				<h3>{{car.make}} {{car.model}}</h3>
 			</div>
@@ -24,6 +26,13 @@
 			</div>
 			<div class="data">
 				${{car.amountFinanced}}
+			</div>
+
+			<div class="text">
+				Interest Rate:
+			</div>
+			<div class="data">
+				{{car.rate * 100}}%
 			</div>
 
 			<div class="text">
