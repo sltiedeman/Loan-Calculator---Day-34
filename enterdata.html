@@ -2,27 +2,37 @@
 	<div class="row"> 
 		<div class="col-md-4 col-md-offset-4">
 			<img ng-src={{imagePath}}>
-			<form name="carForm" ng-submit="calculate()">
+			<form name="carForm" ng-submit="calculate(carForm.$valid)" novalidate>
 				<h4>{{make}} {{model}}</h4>
 				<label>MSRP: ${{msrp}}</label>
 				<div class="form-group">
-				<label for="price">Purchase Price: </label>
-					<input type="number" id="price" class="form-control" ng-model="price" min="0" max="500000" required >
+					<label for="price">Purchase Price: </label>
+					<input type="number" id="price" name="price" class="form-control" ng-model="price" min="0" max="500000" required >
+					<div ng-messages="carForm.price.$error">
+						<p ng-message="required" class="help-block" ng-show="carForm.price.$touched">Price is required.</p>
+					</div> 
 				</div>
 				<div class="form-group">
 					<label for="downpayment">Down Payment: </label>
-					<input type="number" id="downpayment" class="form-control" ng-model="downpmt"required> 
+					<input type="number" id="downpayment" class="form-control" ng-model="downpmt"required name="downpmt"> 
+					<div ng-messages="carForm.downpmt.$error">
+						<p ng-message="required" class="help-block" ng-show="carForm.downpmt.$touched">Down payment amount is required.</p>
+					</div> 
 					<!-- <span style="color:red" ng-show="carForm.downpmt.$dirty"> -->
 				</div>
 				<div class="form-group">
 					<label for="payments"># of Payments: </label>
-					<input type="number" id="payments" class="form-control" ng-model="numPayments" min="0" max="84" placeholder="Up to 84" required>
+					<input type="number" id="payments" class="form-control" ng-model="numPayments" ng-min="0" ng-max="84" placeholder="Up to 84" name="numPayments" required>
+					<div ng-messages="carForm.numPayments.$error">
+						<p ng-message="required" class="help-block" ng-show="carForm.numPayments.$touched">Down payment amount is required.</p>
+						<p ng-message="max" class="help-block" ng-show="carForm.numPayments.$invalid">Must be a number between 1 and 84.</p>
+					</div>
 				</div>
 				<div class="form-group">
 					<label for="rate">Interest Rate: </label>
 					<input type="text" id="rate" class="form-control" ng-model="rate" placeholder="Ex: enter .05 for 5%" name="rate" required>
 				</div>
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="submit" class="btn btn-primary" ng-disabled="carForm.$invalid">Submit</button>
 				<button class="btn btn-warning" ng-click="goBack()">Go Back
 				</button>
 			</form>

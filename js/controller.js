@@ -1,5 +1,6 @@
 
-var carApp = angular.module('carApp', ['ngRoute']);
+var carApp = angular.module('carApp', ['ngRoute', 'ngMessages']);
+
 
 //global msrp variable 
 var msrp = 0;
@@ -65,7 +66,7 @@ carApp.controller('carLoanController', function ($scope, $location){
 		$location.path('/enterdata');
 	}
 
-	$scope.calculate = function(){
+	$scope.calculate = function(isValid){
 		selectedCars[counter].rate = $scope.rate;
 		selectedCars[counter].amountFinanced = $scope.price - $scope.downpmt;
 		//variables declared for future brevity in math formula
