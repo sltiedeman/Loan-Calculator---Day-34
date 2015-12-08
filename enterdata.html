@@ -8,9 +8,10 @@
 				<div id="line"></div>
 				<div class="form-group">
 					<label for="price">Purchase Price: </label>
-					<input type="number" id="price" name="price" class="form-control" ng-model="price" min="0" max="500000" required >
+					<input type="number" id="price" name="price" class="form-control" ng-model="price" ng-min="0" ng-max="500000" required >
 					<div ng-messages="carForm.price.$error">
 						<p ng-message="required" class="help-block" ng-show="carForm.price.$touched">Price is required.</p>
+						<p ng-message="max" class="help-block" ng-show="carForm.price.$invalid">Price must be less than 500000</p>
 					</div> 
 				</div>
 				<div class="form-group">
@@ -31,7 +32,11 @@
 				</div>
 				<div class="form-group">
 					<label for="rate">Interest Rate: </label>
-					<input type="text" id="rate" class="form-control" ng-model="rate" placeholder="Ex: enter .05 for 5%" name="rate" required>
+					<input type="number" id="rate" class="form-control" ng-model="rate" ng-min="0" ng-max="1" placeholder="Ex: enter .05 for 5%" name="rate" required>
+					<div ng-messages="carForm.rate.$error">
+						<p ng-message="required" class="help-block" ng-show="carForm.rate.$touched">Interest rate is required.</p>
+						<p ng-message="max" class="help-block" ng-show="carForm.rate.$invalid">Must be a number between 0 and 1.</p>
+					</div>
 				</div>
 				<div id="buttons">
 					<button type="submit" class="btn btn-primary" ng-disabled="carForm.$invalid">Submit</button>
