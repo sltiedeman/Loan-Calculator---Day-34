@@ -11,6 +11,11 @@ var counter = 0;
 var selectedCars = [];
 var globalIndex;
 
+function viewProject(){
+	document.getElementById("intro-page").style.display="none";
+}
+
+
 carApp.config(function($routeProvider, $locationProvider){
 	$routeProvider.when('/', {
 		templateUrl: 'selectcar.html',
