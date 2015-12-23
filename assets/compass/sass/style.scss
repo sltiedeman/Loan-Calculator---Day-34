@@ -65,6 +65,7 @@
 	h1{
 		padding: 0px;
 		margin: 0px;
+		text-transform: uppercase;
 	}
 }
 
@@ -110,9 +111,17 @@
 	}
 }
 
+select{
+	border-radius: 0px;
+	width: 100px;
+	margin-left: 20px;
+}
+
 #select-car{
 	text-align: center;
 	img{
+		margin-top: 50px;
+		margin-bottom: 50px;
 		max-width: 400px;
 	}
 }
